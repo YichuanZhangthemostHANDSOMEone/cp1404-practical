@@ -25,4 +25,4 @@ Forgot to add docstring when writing program.
 
 ## What are you doing really well for practicals in this subject?
 
-Getting more used to use function in the program. 
+Getting more used to use function in the program.
