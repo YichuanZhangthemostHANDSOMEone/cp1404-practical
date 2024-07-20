@@ -9,14 +9,15 @@ def read_file():
             parts = line.strip().split(",")
             guitar = Guitar(parts[0], int(parts[1]), float(parts[2]))
             guitars.append(guitar)
-    guitars.sort()
     return guitars
 
 
 def main():
     """Reads guitars from CSV, sorts them, and prints the results."""
     guitars = read_file()
-
+    for no_sort_guitar in guitars:
+        print(no_sort_guitar)
+    guitars.sort()
     print("Sorted Guitars:")
     for guitar in guitars:
         print(guitar)

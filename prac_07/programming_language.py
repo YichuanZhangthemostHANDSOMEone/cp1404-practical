@@ -2,6 +2,8 @@
 CP1404/CP5632 Practical - Suggested Solution
 Programming Language class with tests.
 """
+from collections import namedtuple
+import csv
 
 
 class ProgrammingLanguage:
@@ -30,19 +32,21 @@ class ProgrammingLanguage:
 
 def run_tests():
     """Run simple tests/demos on ProgrammingLanguage class."""
-    ruby = ProgrammingLanguage("Ruby", "Dynamic", True, 1995, "No")
-    python = ProgrammingLanguage("Python", "Dynamic", True, 1991, "Yes")
-    visual_basic = ProgrammingLanguage("Visual Basic", "Static", False, 1991, "No")
-
-    languages = [ruby, python, visual_basic]
-    print(python)
+    languages = []
+    Language = namedtuple('Language', 'name, typing, reflection, year, pointer')
+    in_file = open("languages.csv", "r")
+    in_file.readline()
+    for language in map(Language._make, csv.reader(in_file)):
+        programming_language = ProgrammingLanguage(language.name, language.typing, language.reflection, language.year, language.pointer)
+        languages.append(programming_language)
+    in_file.close()
 
     print("The dynamically typed languages are:")
     for language in languages:
         if language.is_dynamic():
             print(language.name)
 
-    print("The languages has Pointer Arithmetic")
+    print("The languages has Pointer Arithmetic:")
     for p_language in languages:
         if p_language.is_pointer():
             print(p_language.name)
