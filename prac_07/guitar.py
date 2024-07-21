@@ -1,3 +1,6 @@
+COMPARE_YEAR = 50
+
+
 class Guitar:
     """Create a Guitar class"""
     def __init__(self, name="", year=0, cost=0.00):
@@ -16,7 +19,7 @@ class Guitar:
 
     def is_vintage(self):
         """Determines if the guitar is older than 50 years."""
-        return self.get_age() >= 50
+        return self.get_age() >= COMPARE_YEAR
 
     def __lt__(self, other):
         """Compare guitar age"""

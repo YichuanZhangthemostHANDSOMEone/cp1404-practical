@@ -1,7 +1,10 @@
+MAXIMUM_PERCENTAGE = 100
+
+
 class Project:
     """Create a project class"""
 
-    def __init__(self, name, start_date, priority, cost_estimate, percentage):
+    def __init__(self, name, start_date, priority=0, cost_estimate=0.0, percentage=0):
         self.name = name
         self.start_date = start_date
         self.priority = priority
@@ -12,10 +15,7 @@ class Project:
         return f"{self.name}, start: {self.start_date}, priority {self.priority}, estimate: ${self.cost_estimate}, completion: {self.percentage}%"
 
     def is_completed(self):
-        return self.percentage == "100"
+        return self.percentage == MAXIMUM_PERCENTAGE
 
     def __lt__(self, other):
-        return self.start_date < other.start_date
-
-    def __le__(self, other):
         return self.priority <= other.priority
